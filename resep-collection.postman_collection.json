@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "dd82122c-7465-4eb8-8cc5-8a4cdbc6c637",
+		"name": "resep-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14118888"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "CREATE CATEGORY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"main course\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/create-category",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"create-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST CATEGORY",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/list-category",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"list-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CATEGORY BY ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:9000/category/6",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"category",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CATEGORY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"resep ubi panggang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/update-category/6",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"update-category",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE CATEGORY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":5\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/delete-category",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"delete-category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Food Ingridient",
+			"item": [
+				{
+					"name": "CREATE Food Ingridient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"nasi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/create-ingredients",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"create-ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST Food Ingridient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/list-ingredients",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"list-ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BY ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/ingredients/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"ingredients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Ingredients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"telor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/update-ingredients/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"update-ingredients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ingredient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:9000/delete-ingredients",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"delete-ingredients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Food Recipe",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipe_name\":\"nasi rebus\",\r\n    \"id_category\":1,\r\n    \"intructions\":[\"intructions1\",\"intructions2\",\"intructions3\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/create-food-recipe",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"create-food-recipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/list-food-recipe",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"list-food-recipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BY ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:9000/food-recipe/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"food-recipe",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"resep ubi panggang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/update-food-recipe/6",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"update-food-recipe",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/delete-food-recipe",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"delete-food-recipe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipe Detail",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_food_recipe\":3,\r\n    \"id_food_ingredient\":5,\r\n    \"ingredient_amount\":\"2 bungkus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/create-recipe-detail",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"create-recipe-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/list-recipe-detail",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"list-recipe-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BY ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:9000/recipe-detail/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"recipe-detail",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_food_recipe\":3,\r\n    \"id_ingredient\":5,\r\n    \"ingredient_amount\":\"2 butir\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/update-recipe-detail/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"update-recipe-detail",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/delete-recipe-detail",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"delete-recipe-detail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
