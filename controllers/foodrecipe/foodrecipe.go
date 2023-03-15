@@ -14,7 +14,10 @@ func ListFRecipe(c *gin.Context) {
 	var FRecipe []models.FoodRecipe
 
 	config.DB.Find(&FRecipe)
-	c.JSON(http.StatusOK, gin.H{"food recipe": &FRecipe})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "success",
+		"data":    &FRecipe})
 }
 func CreateFRecipe(c *gin.Context) {
 	var request *models.FoodRecipe
@@ -58,15 +61,24 @@ func GetById(c *gin.Context) {
 	if err := config.DB.First(&FRecipe, id).Error; err != nil {
 		switch err {
 		case gorm.ErrRecordNotFound:
-			c.AbortWithStatusJSON(http.StatusNotFound, gin.H{"message": "Data tidak ditemukan"})
+			c.AbortWithStatusJSON(http.StatusNotFound, gin.H{
+				"status":  "400",
+				"message": "Data tidak ditemukan",
+			})
 			return
 		default:
-			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
+			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
+				"status":  "400",
+				"message": err.Error()})
 			return
 		}
 	}
 
-	c.JSON(http.StatusOK, gin.H{"Recipe": FRecipe})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "success",
+		"data":    FRecipe,
+	})
 }
 
 func Update(c *gin.Context) {
@@ -74,16 +86,24 @@ func Update(c *gin.Context) {
 	id := c.Param("id")
 
 	if err := c.ShouldBindJSON(&FRecipe); err != nil {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"status":  "400",
+			"message": err.Error(),
+		})
 		return
 	}
 
 	if config.DB.Model(&FRecipe).Where("id = ?", id).Updates(&FRecipe).RowsAffected == 0 {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "tidak dapat mengupdate FRecipe"})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"status":  "400",
+			"message": "tidak dapat mengupdate FRecipe"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Data berhasil diperbarui"})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "Data berhasil diperbarui",
+	})
 
 }
 
@@ -96,15 +116,21 @@ func Delete(c *gin.Context) {
 	}
 
 	if err := c.ShouldBindJSON(&input); err != nil {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"status":  "400",
+			"message": err.Error()})
 		return
 	}
 
 	id, _ := input.Id.Int64()
 	if config.DB.Delete(&FRecipe, id).RowsAffected == 0 {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "Tidak dapat menghapus FRecipe"})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"status":  "400",
+			"message": "Tidak dapat menghapus FRecipe"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Data berhasil dihapus"})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "Data berhasil dihapus"})
 }

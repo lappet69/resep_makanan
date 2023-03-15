@@ -14,7 +14,11 @@ func ListCategory(c *gin.Context) {
 	var category []models.Category
 
 	config.DB.Find(&category)
-	c.JSON(http.StatusOK, gin.H{"categories": category})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "success",
+		"data":    category,
+	})
 }
 func CreateCategory(c *gin.Context) {
 	var request *models.Category
@@ -33,7 +37,8 @@ func CreateCategory(c *gin.Context) {
 	}
 
 	c.JSON(200, gin.H{
-		"category": result,
+		"status":  "200",
+		"message": "success",
 	})
 }
 
@@ -52,7 +57,11 @@ func GetById(c *gin.Context) {
 		}
 	}
 
-	c.JSON(http.StatusOK, gin.H{"category": category})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "success",
+		"data":    category,
+	})
 }
 
 func Update(c *gin.Context) {
@@ -69,7 +78,10 @@ func Update(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Data berhasil diperbarui"})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "Data berhasil diperbarui",
+	})
 
 }
 
@@ -92,5 +104,8 @@ func Delete(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Data berhasil dihapus"})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "Data berhasil dihapus",
+	})
 }

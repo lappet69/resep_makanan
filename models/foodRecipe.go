@@ -9,9 +9,9 @@ type Category struct {
 
 type FoodRecipe struct {
 	gorm.Model
-	RecipeName  string   `json:"recipe_name"`
-	Id_Category int      ` json:"id_category"` // foreign key to category
-	Instruction []string ` json:"instruction"`
+	RecipeName  string `json:"recipe_name"`
+	Id_Category int    ` json:"id_category"` // foreign key to category
+	Instruction string ` json:"instruction"`
 }
 type FoodIngredient struct {
 	gorm.Model

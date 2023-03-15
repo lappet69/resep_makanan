@@ -14,7 +14,11 @@ func ListFIngredients(c *gin.Context) {
 	var FIngredients []models.FoodIngredient
 
 	config.DB.Find(&FIngredients)
-	c.JSON(http.StatusOK, gin.H{"categories": FIngredients})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "success",
+		"data":    FIngredients,
+	})
 }
 func CreateFIngredients(c *gin.Context) {
 	var request *models.FoodIngredient
@@ -33,7 +37,8 @@ func CreateFIngredients(c *gin.Context) {
 	}
 
 	c.JSON(200, gin.H{
-		"FIngredients": result,
+		"status":  "200",
+		"message": "success",
 	})
 }
 
@@ -52,7 +57,11 @@ func GetById(c *gin.Context) {
 		}
 	}
 
-	c.JSON(http.StatusOK, gin.H{"FIngredients": FIngredients})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "success",
+		"data":    FIngredients,
+	})
 }
 
 func Update(c *gin.Context) {
@@ -65,11 +74,17 @@ func Update(c *gin.Context) {
 	}
 
 	if config.DB.Model(&FIngredients).Where("id = ?", id).Updates(&FIngredients).RowsAffected == 0 {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "tidak dapat mengupdate FIngredients"})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"status":  "400",
+			"message": "gagal mengupdate bahan",
+		})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Data berhasil diperbarui"})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "Data berhasil diperbarui",
+	})
 
 }
 
@@ -88,9 +103,12 @@ func Delete(c *gin.Context) {
 
 	id, _ := input.Id.Int64()
 	if config.DB.Delete(&FIngredients, id).RowsAffected == 0 {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "Tidak dapat menghapus FIngredients"})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "Gagal menghapus "})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Data berhasil dihapus"})
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "200",
+		"message": "Data berhasil dihapus",
+	})
 }
