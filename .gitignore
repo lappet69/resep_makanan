@@ -5,6 +5,7 @@
 *.so
 *.dylib
 .vscode
+vscode
 .env
 
 # Test binary, built with `go test -c`
